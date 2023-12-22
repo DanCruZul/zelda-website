@@ -1,0 +1,533 @@
+@import url("https://fonts.googleapis.com/css2?family=Reggae+One&display=swap");
+
+@font-face {
+  font-family: "Botw";
+  src: url(../fonts/Botw/HyliaSerifBeta-Regular.otf);
+}
+
+:root {
+  --clr-light: #e2ded3;
+  --clr-gold: #b99047;
+  --clr-dark: #000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url(../img/background.png);
+  background-color: #032c2d;
+  background-position: center;
+  background-size: 1.1cm;
+  font-family: "Botw", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+span,
+a {
+  text-shadow: 1px 1px 4px black, 1px 1px 4px black, 1px 1px 4px;
+}
+
+.mirrow_img {
+  transform: scaleX(-1);
+}
+
+hr {
+  margin-top: 4rem;
+  height: 1px;
+  border: 0;
+  background: linear-gradient(
+    to right,
+    #0000009a,
+    #daa520 50%,
+    #daa520 50%,
+    #0000009a
+  ); /* Ancho del degradado es el doble para permitir la transición */
+}
+
+/* header */
+
+.header {
+  background: url(../img/banner.jpg);
+  min-height: 90vh;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  z-index: 1;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.header::after {
+  content: ""; /* Pseudo-elemento para superponer un fondo oscuro */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1; /* Ajusta el valor alfa según la opacidad deseada */
+}
+
+.header .zelda_logo {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  animation: reveal 3s;
+}
+
+.header .zelda_logo img {
+  width: 30rem;
+}
+
+.header .dialog {
+  font-family: "Reggae One", sans-serif;
+  position: relative;
+  width: 40rem;
+  height: 12.5rem;
+  border-radius: 100px;
+  background: var(--clr-dark);
+  color: var(--clr-light);
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: reveal 3s;
+}
+
+.header .dialog_name {
+  position: absolute;
+  font-size: 22px;
+  top: -15px;
+  left: 80px;
+  text-shadow: 0px 0px 2px black, 0px 0px 4px black, 0px 0px 6px;
+}
+
+.header .dialog_text {
+  padding: 0 100px;
+  text-align: center;
+}
+
+.header .dialog_triangle {
+  position: absolute;
+  width: 27px;
+  height: 18px;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  background: var(--clr-light);
+  bottom: -10px;
+  animation: float 3.4s infinite;
+}
+
+.header .dialog_triangle:before {
+  content: "";
+  width: 20px;
+  height: 15px;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  background: var(--clr-dark);
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  24% {
+    transform: translateY(-6.56px);
+  }
+  40% {
+    transform: translateY(6.28px);
+  }
+  66% {
+    transform: translateY(-2.56px);
+  }
+}
+
+.header .nav_row {
+  width: 100%;
+  font-size: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 150px;
+  animation: reveal 3s;
+}
+
+.header .nav_row li {
+  width: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .nav_row li:last-child {
+  width: 240px;
+}
+
+.header .nav_row li::after {
+  content: "";
+  position: absolute;
+  border-radius: 50px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.header .nav_row li a {
+  color: var(--clr-light);
+  transition: margin 500ms ease, color 800ms;
+}
+
+.header .nav_row li a:hover {
+  color: var(--clr-gold);
+  margin: 0 10px;
+}
+
+.header .rule::before {
+  content: "";
+  width: 100%;
+  margin-top: 37px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  border-top: solid 2px var(--clr-gold);
+  border-bottom: solid 2px var(--clr-gold);
+  z-index: -1;
+}
+
+.header .rule {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  bottom: -45px;
+  overflow-x: hidden;
+  z-index: 2;
+}
+
+/* end */
+
+/* games section */
+
+.games .games_header {
+  font-size: 40px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--clr-light);
+  gap: 10px;
+}
+
+.games .row {
+  width: 75%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px 30px;
+}
+
+.games .row .box {
+  width: 23rem;
+  display: flex;
+  animation: reveal, scale;
+  animation-timeline: view();
+  animation-range: entry 1% cover 50%;
+}
+
+.games .row .box img {
+  width: 100%;
+  height: 13rem;
+  outline: solid 2px var(--clr-gold);
+  transition: transform 300ms;
+  object-fit: cover;
+  object-position: center;
+}
+
+@keyframes scale {
+  0% {
+    scale: 0.8;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+.games .row .box a > img:hover {
+  transform: scale(1.02);
+  transition: 500ms;
+}
+
+.games .row .box_title {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.games .row .box_title img {
+  outline: none;
+  width: 25px;
+  height: 33px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.games .row .box span {
+  font-size: 21px;
+  text-align: center;
+  border-top: solid 4px var(--clr-gold);
+  border-bottom: solid 4px var(--clr-gold);
+  color: var(--clr-light);
+  transition: color 350ms;
+}
+
+.games .row .box span:hover {
+  color: var(--clr-gold);
+}
+
+/* end */
+
+/* tierlis section */
+
+.tierlist {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  background: url(../img/Zelda/triangle-border.png);
+  background-repeat: repeat-x;
+}
+
+.tierlist::after {
+  content: ""; /* Pseudo-elemento para superponer un fondo oscuro */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to bottom, #032c2d00, #0000ff09);
+  z-index: -1; /* Ajusta el valor alfa según la opacidad deseada */
+}
+
+.tierlist .tierlist_header {
+  font-size: 40px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--clr-light);
+  gap: 10px;
+}
+
+.tierlist_box {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 60%;
+  height: auto;
+  animation: reveal;
+  animation-timeline: view();
+  animation-range: entry 1%;
+}
+
+.tierlist_row {
+  border: solid 1px black;
+  background: #333;
+  display: grid;
+  grid-template-columns: minmax(4rem, 8rem) minmax(10rem, 1fr);
+  grid-template-rows: auto;
+}
+
+.tierlist_row .category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.tierlist_row .ss {
+  background: #ff7f7f;
+  padding-left: 15px;
+}
+
+.tierlist_row .s {
+  background: #ffbf7f;
+}
+
+.tierlist_row .a {
+  background: #ffdf7f;
+}
+
+.tierlist_row .b {
+  background: #ffff7f;
+}
+
+.tierlist_row .c {
+  background: #bfff7f;
+}
+
+.tierlist_row .d {
+  background: #7fff7f;
+}
+
+.tierlist_row .category_box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tierlist_games {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tierlist .gamebox {
+  width: 5rem;
+  height: 5rem;
+  cursor: pointer;
+}
+
+/* end */
+
+/* footer */
+
+.footer {
+  background: var(--clr-dark);
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: var(--clr-light);
+}
+
+.footer span {
+  font-size: 40px;
+}
+
+.footer .redes {
+  text-align: center;
+  font-size: 25px;
+}
+
+.footer .redes_row {
+  margin-top: 15px;
+  display: flex;
+}
+
+.footer .redes_row .redes_box:nth-child(2) img {
+  background: #e2ded3;
+  border-radius: 50%;
+  transform: scale(0.75);
+}
+
+.footer .redes_box {
+  width: 100%;
+}
+
+.footer .redes_box img {
+  width: 100%;
+}
+
+/* end */
+
+@media (max-width: 650px) {
+  .header {
+    gap: 1px;
+  }
+
+  .header .zelda_logo img {
+    width: 25rem;
+  }
+
+  .header .dialog {
+    background: none;
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .header .dialog_name {
+    display: none;
+  }
+
+  .header .dialog_text {
+    transition: none;
+    padding: 10%;
+  }
+
+  .header .dialog_triangle {
+    display: none;
+  }
+
+  .header .nav_row {
+    transform: scale(0.95);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    gap: 40px;
+  }
+
+  .header .zelda_logo img {
+    width: 20rem;
+  }
+
+  .header .dialog {
+    background: none;
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .games .row .box:first-child img {
+    object-position: 0%;
+  }
+
+  .games .row .box_title img {
+    display: none;
+  }
+
+  .games .row .box_title span {
+    border: none;
+  }
+
+  .tierlist_row {
+    grid-template-columns: auto;
+  }
+}
